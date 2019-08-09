@@ -1,6 +1,6 @@
 ![alt tag](https://github.com/ncdcommunity/ThingSpeak-ESP32-and-Long-Range-Wireless-Temp-and-Humidity-Sensor/blob/master/imgonline-com-ua-twotoone-nvNb5VFjmc.jpg)
 
-**In this tutorial, we will measure different temperature and humidity data using Temp and humidity sensor. You will also learn how to send this data to ThingSpeak. So that you can create a temp alert in your mail at particular value.**
+**In this tutorial, we will measure different temperature and humidity data using Temp and humidity sensor. You will also learn how to send this data to AWS.**
 
 
 **Hardware** :
