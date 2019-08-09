@@ -18,11 +18,64 @@
 - PubSubClient Library
 - Wire.h
 - AWS_IOT.h
+
 ##  Uploading the code  to ESP32 using Arduino IDE:
 - **Download and include the PubSubClient Library and Wire.h Library.**
-- **You must assign your unique Ubidots TOKEN, MQTTCLIENTNAME, SSID (WiFi Name) and Password of the available network.**
-- **Compile and upload the  [temp_humidity.ino](https://github.com/mjScientech/Esp32-Ubidots-Wireless-long-range-Temperature-And-Humidity/blob/master/temp_humidity.ino) code.**
+- **Download the Zip file of AWS_IoT ,from the given [link](https://github.com/ExploreEmbedded/Hornbill-Examples) and after extracting ,paste the library in your arduino library folder.**
+- **You must assign your unique AWS  MQTT_TOPIC,AWS_HOST,SSID (WiFi Name) and Password of the available network.**
+- **Compile and upload the  [ESP32_AWS.ino](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/ESP32_AWS.ino) code.**
 - **To verify the connectivity of the device and the data sent, open the serial monitor.If no response is seen, try unplugging your ESP32 and then plugging it again. Make sure the baud rate of the Serial monitor is set to the same one specified in your code 115200.**
 
 ## Serial monitor output.
-![alt tag](https://github.com/mjScientech/Esp32-Ubidots-Wireless-long-range-Temperature-And-Humidity/blob/master/serialout.JPG)
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32)
+
+## Making the AWS work.
+
+**CREATE THING AND CERTIFICATE**
+- THING: It is virtual representation od your device.
+- CERTIFICATE: Authenticates the identity of a THING.
+- Open [AWS-IoT](https://eu-central-1.console.aws.amazon.com/iot/home)
+- Click on manage -THING -Register THING.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/thing1.JPG)
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/registerthing.JPG)
+- Click on create create single thing.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/creatething.JPG)
+- Give the Thing name and type.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/creatething1.JPG)
+- Click on next.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/creatething2.JPG)
+- Now your certificate page will open,Click on Create Certificate.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/certificate.JPG)
+- Download these Certificates,mainly private key,certificate for this thing and root_ca and keep them in separate folder.
+- Inside root_ca certificate click on Amazon root CA1-Copy it-Paste  it to notepad and save it as a root_ca.txt file in your certificate folder.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/certificate4.JPG)
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/rootCA.JPG)
+
+**Create Policy**
+It defines which operation a device or user can access.
+- Go to AWS-IoT interface ,Click on Secure-Policies.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/policy2.JPG)
+- Click on Create.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/policy4.JPG)
+- Fill all the necessary details such as policy name,Click Create.
+ ![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/policy6.JPG)
+- Now go back to AWS-IoT interface ,Click on Secure-Certificates and attach the policy created just now to it.
+ ![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/cert1.JPG)
+ ![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/cert2.JPG)
+ ![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/cert3.JPG)
+
+**Add Private key,Certificate and root_CA to code.**
+- Open your downloaded certificate in your text editor(Notepad++),mainly private key ,root_CA and certificate of thing and edit them as given below .
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/codecert1.JPG)
+- Now open your AWS_IoT folder in your arduino library -My Document.Go to C:\Users\xyz\Documents\Arduino\libraries\AWS_IOT\src ,click on  aws_iot_certficates.c,open it on editor and paste all the edited certificate  their at required place,save it.
+
+## Getting Output-
+- Go to test in AWS_IoT console.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/test1.JPG)
+- Fill your Mqtt topic to Subscription topic in your test credential.
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/test2.JPG)
+- Now you can view yor temp and humidity data.
+
+## OUTPUT
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/AWS_Output.JPG)
+
