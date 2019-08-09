@@ -23,11 +23,12 @@
 - **Download and include the PubSubClient Library and Wire.h Library.**
 - **Download the Zip file of AWS_IoT ,from the given [link](https://github.com/ExploreEmbedded/Hornbill-Examples) and after extracting ,paste the library in your arduino library folder.**
 - **You must assign your unique AWS  MQTT_TOPIC,AWS_HOST,SSID (WiFi Name) and Password of the available network.**
+- **MQTT topic and AWS HOST can be get inside Things-Interact at AWS-IoT console.**
 - **Compile and upload the  [ESP32_AWS.ino](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/ESP32_AWS.ino) code.**
 - **To verify the connectivity of the device and the data sent, open the serial monitor.If no response is seen, try unplugging your ESP32 and then plugging it again. Make sure the baud rate of the Serial monitor is set to the same one specified in your code 115200.**
 
 ## Serial monitor output.
-![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32)
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/serial%20monitor%20output.JPG)
 
 ## Making the AWS work.
 
