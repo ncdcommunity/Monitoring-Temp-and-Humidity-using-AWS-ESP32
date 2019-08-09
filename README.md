@@ -18,3 +18,11 @@
 - PubSubClient Library
 - Wire.h
 - AWS_IOT.h
+##  Uploading the code  to ESP32 using Arduino IDE:
+- **Download and include the PubSubClient Library and Wire.h Library.**
+- **You must assign your unique Ubidots TOKEN, MQTTCLIENTNAME, SSID (WiFi Name) and Password of the available network.**
+- **Compile and upload the  [temp_humidity.ino](https://github.com/mjScientech/Esp32-Ubidots-Wireless-long-range-Temperature-And-Humidity/blob/master/temp_humidity.ino) code.**
+- **To verify the connectivity of the device and the data sent, open the serial monitor.If no response is seen, try unplugging your ESP32 and then plugging it again. Make sure the baud rate of the Serial monitor is set to the same one specified in your code 115200.**
+
+## Serial monitor output.
+![alt tag](https://github.com/mjScientech/Esp32-Ubidots-Wireless-long-range-Temperature-And-Humidity/blob/master/serialout.JPG)
