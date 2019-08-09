@@ -1,4 +1,4 @@
-![alt tag](https://github.com/ncdcommunity/ThingSpeak-ESP32-and-Long-Range-Wireless-Temp-and-Humidity-Sensor/blob/master/imgonline-com-ua-twotoone-nvNb5VFjmc.jpg)
+![alt tag](https://github.com/mjScientech/Monitoring-Temp-and-Humidity-using-AWS-ESP32/blob/master/imgonline-com-ua-twotoone-XpoMD4Mf6S.jpg)
 
 **In this tutorial, we will measure different temperature and humidity data using Temp and humidity sensor. You will also learn how to send this data to AWS.**
 
@@ -12,9 +12,9 @@
 
 **Software Used:**
 - Arduino IDE
-- ThingSpeak
-- IFTTT
+- AWS
 
 **Library Used:**
 - PubSubClient Library
 - Wire.h
+- AWS_IOT.h
